@@ -38,17 +38,18 @@ const handleRejected = (state, action) => {
       [fetchContacts.fulfilled](state, action) {
          state.isLoading = false;
          state.error = null;
-         state.items = action.payload;
+         state.contacts = action.payload;
         },
       [addContacts.fulfilled](state, action) {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
+        state.contacts.push(action.payload);
       },
       [deleteContact.fulfilled](state, action) {
         state.isLoadig = false;
         state.error = null;
-        state.contacts = state.contacts.filter(contact => contact.id !== action.payload.id);
+        const index = state.contacts.findIndex(contact => contact.id === action.payload);
+        state.contacts.splice(index, 1);
       },
       [logOut.fulfilled](state) {
         state.contacts = [];

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'redux/contacts/slice';
-import s from './Filter.module.css';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 export const Filter = () => {
     const dispatch = useDispatch();
@@ -9,45 +10,32 @@ export const Filter = () => {
     }
 
     return (
-        <div className={s.filter}>
-            <label className={s.label}>Find contacts by name
-            <input
-                    type="text"
-                    name="filter"
-                    onChange={onChangeFilter}
-                    className={s.input}
-            />
-            </label>
-        </div>
+        <Box
+        sx={{
+            '& .MuiTextField-root': { my: 3, width: '500px'  },
+          }}
+        >
+         <TextField
+          label="Search field"
+          type="text"
+          variant="filled"
+          name="filter"
+          onChange={onChangeFilter}
+        />
+        </Box>
+        
     )
 } 
 
 
 
-
-// import { useDispatch } from 'react-redux';
-// import { filterContact } from 'redux/contactSlice';
-// import s from './Filter.module.css';
-
-// const Filter = () => {
-//     const dispatch = useDispatch();
-//     const onChangeFilter = e => {
-//         dispatch(filterContact(e.target.value));
-//     }
-
-//     return (
-//         <div className={s.filter}>
-//             <label className={s.label}>Find contacts by name
-//             <input
-//                     type="text"
-//                     name="filter"
-//                     onChange={onChangeFilter}
-//                     className={s.input}
-//             />
-//             </label>
-//         </div>
-//     )
-// } 
-
-// export default Filter;
-
+// {/* <div className={s.filter}>
+// <label className={s.label}>Find contacts by name
+// <input
+//         type="text"
+//         name="filter"
+//         onChange={onChangeFilter}
+//         className={s.input}
+// />
+// </label>
+// </div> */}

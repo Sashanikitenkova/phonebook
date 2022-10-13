@@ -1,48 +1,43 @@
 import { useDispatch } from "react-redux";
 import { deleteContact } from "redux/contacts/operations";
-import s from './ContactItem.module.css';
+
+import * as React from 'react';
+import Paper from '@mui/material/Paper'
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import IconButton from '@mui/material/IconButton';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import BackspaceIcon from '@mui/icons-material/Backspace';
 
 export const ContactItem = ({ id, name, number }) => {
     const dispatch = useDispatch();
 
     return (
-
-            <li className={s.contactItem}>
-                {name}: {number}
-                <button type='button' className={s.button} onClick={() => dispatch(deleteContact(id))}>Delete</button>
-           </li>
+      <Paper elevation={3} >
+             <ListItem
+                secondaryAction={
+                <IconButton edge="end" aria-label="delete" type="button" onClick={() => dispatch(deleteContact(id))}>
+                <BackspaceIcon />
+                </IconButton>
+               }
+            >
+            <ListItemAvatar>
+               <AccessibilityNewIcon /> 
+           </ListItemAvatar>
+           {name}: {number}
+           </ListItem> 
+      </Paper>
+      
         )
 } 
 
 
 
 
-
-// import PropTypes from 'prop-types';
-// import s from './ContactItem.module.css';
-// import { useDispatch } from "react-redux";
-// import { deleteContact } from "redux/contactSlice";
-
-// const ContactItem = ({ id, name, number }) => {
-//     const dispatch = useDispatch();
-
-//     return (
-
-//             <li className={s.contactItem}>
+// {/* <li className={s.contactItem}>
 //                 {name}: {number}
 //                 <button type='button' className={s.button} onClick={() => dispatch(deleteContact(id))}>Delete</button>
-//            </li>
-//         )
-// } 
-
-// export default ContactItem;
-
-// ContactItem.propTypes = {
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     number: PropTypes.string.isRequired,
-// };
-
+//            </li> */}
 
 
 

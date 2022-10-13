@@ -1,24 +1,15 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import Container from '@mui/material/Container';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import Typography from '@mui/material/Typography';
 
 const Home = () => {
     return (
-      <div style={styles.container}>
-        <h1 style={styles.title}>
-        Contact book
-        </h1>
-      </div>
+      <Container maxWidth="sm">
+        <Typography sx={{ mt: 20, mb: 2 }} align='center' variant='h4' >
+           <ContactPageIcon sx={{ fontSize: 120 }} />
+           Contact book 
+        </Typography>
+      </Container>
     );
   };
 

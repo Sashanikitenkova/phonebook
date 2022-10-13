@@ -5,8 +5,7 @@ import { Filter } from 'components/Filter/Filter';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectLoading } from 'redux/contacts/selectors';
 import { ContactList } from 'components/ContactList/ContactList';
-
-
+import Container from '@mui/material/Container';
 
 export default function Contacts () {
   const dispatch = useDispatch();
@@ -17,13 +16,11 @@ export default function Contacts () {
   }, [dispatch]);
 
     return (
-      <>
-      <h1>Phonebook</h1>
+      <Container maxWidth="sm">
       <ContactForm />
-      <h2>Contacts</h2>
       <Filter />
        <div>{isLoading && 'Request in progress...'}</div>
       <ContactList />
-      </>
+      </Container>
     );
   };
